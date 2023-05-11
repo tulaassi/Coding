@@ -1,0 +1,365 @@
+1. Check Two String which are reverse of each other or not.
+Sol : public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        string str, cpyStr, revStr = "";
+        Console.Write("Enter String to Reverse - ");
+        str = Console.ReadLine();
+        cpyStr = str;
+        int Len = str.Length - 1;
+        while(Len >= 0)
+        {
+            revStr = revStr + str[Len];
+            Len--;
+        }
+        //Console.Write("Reverse String - "+revStr);
+        if(revStr == cpyStr)
+        {
+            Console.WriteLine("EQUAL!!");
+        }
+        else
+        {
+            Console.WriteLine("Not Equal.");
+        }
+    
+    }
+}
+-------------------------------------------------------------------------------------------------------
+3. Find the Power without using math.pow function.
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        int num, pow, result=1 ;
+        Console.Write("Enter Number - ");
+        num = Convert.ToInt32(Console.ReadLine());
+        Console.Write("\nEnter Power you want - ");
+        pow = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= pow; i++)
+        {
+            result = result * num;
+        }
+        Console.WriteLine("Power = "+result);
+    }
+}
+
+--------------------------------------------------------------------------------------------------------
+4. Find the negative Power without using math.pow function.
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        int num, pow;
+        double result = 1;
+        Console.Write("Enter Number - ");
+        num = Convert.ToInt32(Console.ReadLine());
+        Console.Write("\nEnter Power you want - ");
+        pow = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= pow; i++)
+        {
+            result *= 1.0 / num;
+        }
+        if(pow < 0)
+        {
+            result = 1/result;
+        }
+        Console.WriteLine("Power = "+result);
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------
+
+14. WAP to read name (program) and print letters in ascending order (agmoprr)
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine ("Enter String - ");
+        string str = Console.ReadLine();
+        char[] charArr = str.ToCharArray();
+        Array.Sort(charArr);
+        Console.WriteLine("Sorted!");
+        Console.WriteLine(charArr);
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------
+
+7. How many times a particular character is repeated in a string
+
+        public static void Main(string[] args)
+    {
+        int count = 0;
+        Console.Write("Enter a String - ");
+        string str = Console.ReadLine();
+        Console.Write("Enter a charachter you want to check - ");
+        char ch = Convert.ToChar(Console.ReadLine());
+        for(int i = 0; i < str.Length; i++)
+        {
+            if(str[i] == ch)
+            count++;
+        }
+        Console.WriteLine("'{0}' has occured {1} times in {2}",ch,count, str);
+    }
+
+-------------------------------------------------------------------------------------------------------------------
+8. Count the no of vowels and constants in a string
+
+public static void Main(string[] args)
+    {
+        string str;
+        int vcount=0, ccount=0;
+        Console.Write("Enter String - ");
+        str = Console.ReadLine();
+        for(int i = 0; i < str.Length; i++)
+        {
+            if(str[i] == 'a' | str[i] == 'e' |str[i] == 'i' |str[i] == 'o' | str[i] == 'u')
+            {
+                vcount ++;
+            }
+            else                                      // else if(char.IsLetter())--> this could be used
+            {
+                ccount++;
+            }
+        }
+        Console.Write("Vowles present - {0} & Consonents present - {1}", vcount, ccount);
+    }
+
+--------------------------------------------------------------------------------------------------------------------
+
+11. How to remove characters from the first String which are present in the second String?
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        string firstString, secondString, Result = "";
+        Console.Write("Enter First String - ");
+        firstString = Console.ReadLine();
+        Console.Write("Enter Second string - ");
+        secondString = Console.ReadLine();
+        foreach(char n in firstString)
+        {
+            if(!secondString.Contains(n))
+            {
+                Result+=n;
+            }
+        }
+        Console.WriteLine("Result String - "+Result);
+    }
+
+}
+
+---------------------------------------------------------------------------------------------------------------------
+
+WAP to read a number (28156437) and it should print digits order wise(12345678)
+
+        public static void Main(string[] args)
+    {
+        int number, digit, index = 0;
+        Console.Write("Number of how many digits do you want to enter - ");
+        int size = Convert.ToInt32(Console.ReadLine());
+        int[] intArr = new int[size];
+        Console.Write("Enter number - ");
+        number = Convert.ToInt32(Console.ReadLine());
+        while(number > 0)
+        {
+            digit = number % 10;
+            intArr[index] = digit;
+            number = number / 10;
+            index++;
+        }
+        
+        Array.Sort(intArr);
+        Console.WriteLine("\nSorted  - ");
+        foreach(int n in intArr)
+        {
+            Console.Write(n);
+        }
+    }
+
+------------------------------------------------------------------------------------------------------------------------
+
+12. How to print all permutation of a String?
+10. Write a program to find the difference between equals and ==?
+9. Convert a String into integer?
+5. Find the unique Character in the String.
+2. Find the Smallest Sum of consecutive Number from given Array
+
+-------------------------------------------------------------------------------------------------------------------------
+
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
+
+using System;
+
+public class HelloWorld
+{
+    public int Bsearch(int[] numArr, int num)
+    {
+        int start = 0, end = numArr.Length-1;
+        int mid = (start + end)/2;
+        if(num == numArr[mid])
+        {
+            return mid;
+        }
+        else if(num > numArr[mid])
+        {
+            for(int i = mid +1 ; i <= end; i++)
+            {
+                if(numArr[i] == num)
+                {
+                    return i;
+                }
+                else 
+                {
+                    return 0;
+                }
+            }
+        }
+        else if(num < numArr[mid])
+        {
+            for(int i = 0; i < mid ; i++)
+            {
+                if(numArr[i] == num)
+                {
+                    return i;
+                }
+                else 
+                {
+                    return 0;
+                }
+            }
+        }
+        return 0;
+    }
+    public static void Main(string[] args)
+    {
+       Console.Write("Array with how mant elements you want - ");
+       int size = Convert.ToInt32(Console.ReadLine());
+       int[] numArr = new int[size];
+       Console.WriteLine("Enter {0} elements for array - ", size);
+       for(int i = 0; i < size; i++)
+       {
+           numArr[i] = Convert.ToInt32(Console.ReadLine());
+       }
+       Console.Write("What element you want to search for - ");
+       int num = Convert.ToInt32(Console.ReadLine());
+       Array.Sort(numArr);
+       int result = Bsearch(numArr, num);
+       if(result == 0)
+       {
+           Console.WriteLine("Not Found.");
+       }
+       else
+       {
+           Console.WriteLine("FOUND at {0}", result);
+       }
+       
+       
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+17- WAP that reads set of integers and then prints sum of the even and odd numbers
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("How many number u want to enter -");
+        int size = Convert.ToInt32(Console.ReadLine());
+        int[] arr = new int[size];
+        Console.WriteLine("Enter {0} numbers - ",size);
+        for(int i = 0; i < size ; i++)
+        {
+            arr[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        int Esum= 0,Osum = 0;
+        for(int i = 0; i < size; i++)
+        {
+            if(arr[i] % 2 == 0)
+            {
+                Esum = Esum + arr[i];
+            }
+            else
+            {
+                Osum = Osum + arr[i];
+            }
+        }
+        Console.WriteLine("Sum of odd numbers - {0}",Osum);
+            Console.WriteLine("Sum of Even numbers - {0}",Esum);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
